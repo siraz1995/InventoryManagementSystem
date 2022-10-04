@@ -1,0 +1,30 @@
+<div class="container">
+  <app-city-form></app-city-form>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>cityName</th>
+      <th>country</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let citi of citiService.listCity">
+      <td>{{citi.cityName}}</td>
+      <td>{{citi.countryName}}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" (click)="populateCity(citi)">Edit</a>
+            <a class="dropdown-item" href="#" (click)="delete(citi.cityId)">Delete</a>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
